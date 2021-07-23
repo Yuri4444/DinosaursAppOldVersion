@@ -1,4 +1,4 @@
-package com.example.dinosaursapp.di.modules
+package com.example.dinosaursapp.di.modules.data
 
 import android.util.Log
 import com.example.dinosaursapp.BuildConfig

@@ -1,5 +1,6 @@
 package com.example.dinosaursapp.data.network
 
+import com.example.dinosaursapp.data.network.model.DinosaursList
 import retrofit2.http.GET
 
 interface Api {
