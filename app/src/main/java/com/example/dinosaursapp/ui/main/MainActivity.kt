@@ -1,7 +1,8 @@
-package com.example.dinosaursapp
+package com.example.dinosaursapp.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.dinosaursapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
