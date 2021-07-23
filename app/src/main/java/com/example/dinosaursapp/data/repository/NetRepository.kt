@@ -5,6 +5,6 @@ import javax.inject.Inject
 
 class NetRepository @Inject constructor(private val api: Api) {
 
-    suspend fun getDinosaursList() = api.getDinosaursList().dinosaurs?.en?.land
+    suspend fun getDinosaursList() = api.getDinosaursList()
 
 }

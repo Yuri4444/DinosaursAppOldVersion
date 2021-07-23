@@ -22,10 +22,10 @@ data class EnglishVersion(
     var land: List<Land>? = ArrayList(),
 
     @SerializedName("Sweem")
-    var sweem: List<Sweem>? = ArrayList(),
+    var aqua: List<Aqua>? = ArrayList(),
 
     @SerializedName("Fly")
-    var fly: List<Fly>? = ArrayList()
+    var air: List<Air>? = ArrayList()
 ) : Serializable
 
 data class RussianVersion(
@@ -33,10 +33,10 @@ data class RussianVersion(
     var land: List<Land>? = ArrayList(),
 
     @SerializedName("Sweem")
-    var sweem: List<Sweem>? = ArrayList(),
+    var aqua: List<Aqua>? = ArrayList(),
 
     @SerializedName("Fly")
-    var fly: List<Fly>? = ArrayList()
+    var air: List<Air>? = ArrayList()
 ) : Serializable
 
 data class Land(
@@ -65,9 +65,9 @@ data class Land(
     @SerializedName("isOnSaleRussian")
     var isPredator: Boolean? = false
 
-) : Serializable
+) : Serializable, DinosaurType
 
-data class Sweem(
+data class Aqua(
 
     @SerializedName("titleSwim")
     var title: String? = "",
@@ -88,9 +88,9 @@ data class Sweem(
     var takenFrom: String? = ""
 
 
-) : Serializable
+) : Serializable, DinosaurType
 
-data class Fly(
+data class Air(
 
     @SerializedName("title")
     var title: String? = "",
@@ -112,4 +112,4 @@ data class Fly(
 
     @SerializedName("taken")
     var takenFrom: String? = ""
-) : Serializable
+) : Serializable, DinosaurType

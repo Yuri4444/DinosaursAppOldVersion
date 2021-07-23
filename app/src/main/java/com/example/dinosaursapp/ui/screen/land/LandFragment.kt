@@ -16,7 +16,7 @@ class LandFragment : AbsFragment<LandViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        rvCommon.adapter = adapter
+        rvLand.adapter = adapter
 
         viewModel?.liveData?.observe(viewLifecycleOwner, {
             adapter.setData(it)
