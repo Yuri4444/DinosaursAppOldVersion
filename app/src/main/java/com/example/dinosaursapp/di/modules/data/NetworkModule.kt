@@ -1,6 +1,5 @@
 package com.example.dinosaursapp.di.modules.data
 
-import android.util.Log
 import com.example.dinosaursapp.BuildConfig
 import com.example.dinosaursapp.data.network.Api
 import dagger.Module
@@ -46,14 +45,13 @@ class NetworkModule {
     @Provides
     fun provideInterceptors(): ArrayList<Interceptor> {
         val interceptors = arrayListOf<Interceptor>()
-        val loggingInterceptor = HttpLoggingInterceptor { message -> Log.v("Logger", message) }
-            .apply {
-                level = if (BuildConfig.DEBUG) {
-                    HttpLoggingInterceptor.Level.BODY
-                } else {
-                    HttpLoggingInterceptor.Level.NONE
-                }
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = if (BuildConfig.DEBUG) {
+                HttpLoggingInterceptor.Level.BODY
+            } else {
+                HttpLoggingInterceptor.Level.NONE
             }
+        }
         interceptors.add(loggingInterceptor)
         return interceptors
     }

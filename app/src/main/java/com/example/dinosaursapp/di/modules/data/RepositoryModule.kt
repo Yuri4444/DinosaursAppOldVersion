@@ -1,7 +1,7 @@
 package com.example.dinosaursapp.di.modules.data
 
 import com.example.dinosaursapp.data.network.Api
-import com.example.dinosaursapp.data.repository.impl.NetRepositoryImpl
+import com.example.dinosaursapp.data.repository.NetRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -11,6 +11,6 @@ class RepositoryModule {
 
     @Singleton
     @Provides
-    fun provideNetRepository(api: Api) = NetRepositoryImpl(api)
+    fun provideCharactersRepository(api : Api) = NetRepository(api)
 
 }
