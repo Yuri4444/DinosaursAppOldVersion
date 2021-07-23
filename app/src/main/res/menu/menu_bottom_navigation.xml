@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/landFragment"
+        android:icon="@drawable/ic_land"
+        android:title="@string/land" />
+
+    <item
+        android:id="@+id/aquaFragment"
+        android:icon="@drawable/ic_water"
+        android:title="@string/water" />
+
+    <item
+        android:id="@+id/airFragment"
+        android:icon="@drawable/ic_air"
+        android:title="@string/air" />
+
+</menu>

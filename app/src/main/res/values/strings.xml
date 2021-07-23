@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DinosaursApp</string>
+    <string name="land">Land</string>
+    <string name="water">Water</string>
+    <string name="air">Air</string>
+    <string name="air_dinosaurs">Air dinosaurs</string>
+    <string name="land_dinosaurs">Land dinosaurs</string>
+    <string name="water_dinosaurs">Water dinosaurs</string>
 </resources>

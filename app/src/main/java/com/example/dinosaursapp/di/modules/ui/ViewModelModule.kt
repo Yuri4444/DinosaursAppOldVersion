@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.dinosaursapp.di.ViewModelFactory
 import com.example.dinosaursapp.di.ViewModelKey
-import com.example.dinosaursapp.ui.screen.characters.LandViewModel
+import com.example.dinosaursapp.ui.screen.air.AirViewModel
+import com.example.dinosaursapp.ui.screen.aqua.AquaViewModel
+import com.example.dinosaursapp.ui.screen.land.LandViewModel
 import com.example.dinosaursapp.ui.screen.main.MainViewModel
 import dagger.Binds
 import dagger.Module
@@ -24,5 +26,15 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(LandViewModel::class)
-    abstract fun provideCharactersViewModel(viewModel: LandViewModel): ViewModel
+    abstract fun provideLandViewModel(viewModel: LandViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AquaViewModel::class)
+    abstract fun provideAquaViewModel(viewModel: AquaViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AirViewModel::class)
+    abstract fun provideAirViewModel(viewModel: AirViewModel): ViewModel
 }

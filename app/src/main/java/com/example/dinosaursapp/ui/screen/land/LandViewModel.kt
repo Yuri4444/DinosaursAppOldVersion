@@ -1,4 +1,4 @@
-package com.example.dinosaursapp.ui.screen.characters
+package com.example.dinosaursapp.ui.screen.land
 
 import androidx.lifecycle.MutableLiveData
 import com.example.autoapp.utils.extensions.viewModel.ioToUi

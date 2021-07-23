@@ -1,4 +1,4 @@
-package com.example.dinosaursapp.ui.screen.characters.adapter
+package com.example.dinosaursapp.ui.screen.land.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
