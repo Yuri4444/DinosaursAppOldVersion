@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.example.dinosaursapp.R
 import com.example.dinosaursapp.data.network.model.DinosaurType
 import com.example.dinosaursapp.data.network.model.Air
@@ -64,8 +66,8 @@ class BaseAdapter(private val context: Context) :
         override fun bind(item: DinosaurType) {
             val type = item as Land
 
-            Glide.with(context).load(type.imageMain)
-                .into(itemView.ivImage)
+            val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+            Glide.with(context).load(type.imageMain).apply(requestOptions).into(itemView.ivImage)
             itemView.tvTitle.text = type.title
         }
     }
@@ -75,8 +77,8 @@ class BaseAdapter(private val context: Context) :
         override fun bind(item: DinosaurType) {
             val type = item as Aqua
 
-            Glide.with(context).load(type.image)
-                .into(itemView.ivImage)
+            val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+            Glide.with(context).load(type.image).apply(requestOptions).into(itemView.ivImage)
             itemView.tvTitle.text = type.title
         }
     }
@@ -86,8 +88,8 @@ class BaseAdapter(private val context: Context) :
         override fun bind(item: DinosaurType) {
             val type = item as Air
 
-            Glide.with(context).load(type.image)
-                .into(itemView.ivImage)
+            val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
+            Glide.with(context).load(type.image).apply(requestOptions).into(itemView.ivImage)
             itemView.tvTitle.text = type.title
         }
     }
