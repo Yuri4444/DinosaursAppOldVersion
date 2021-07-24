@@ -2,7 +2,6 @@ package com.example.dinosaursapp.di.modules.ui
 
 import com.example.dinosaursapp.ui.screen.air.AirFragment
 import com.example.dinosaursapp.ui.screen.aqua.AquaFragment
-import com.example.dinosaursapp.ui.screen.land.LandFragment
 import com.example.dinosaursapp.ui.screen.land.main.MainLandFragment
 import com.example.dinosaursapp.ui.screen.land.tab.creta.CretaceousFragment
 import com.example.dinosaursapp.ui.screen.land.tab.jura.JurassicFragment
@@ -12,9 +11,6 @@ import dagger.android.ContributesAndroidInjector
 
 @Module
 abstract class FragmentModule {
-
-    @ContributesAndroidInjector
-    internal abstract fun contributeLandFragment() : LandFragment
 
     @ContributesAndroidInjector
     internal abstract fun contributeAquaFragment() : AquaFragment

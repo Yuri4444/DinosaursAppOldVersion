@@ -6,7 +6,6 @@ import com.example.dinosaursapp.di.ViewModelFactory
 import com.example.dinosaursapp.di.ViewModelKey
 import com.example.dinosaursapp.ui.screen.air.AirViewModel
 import com.example.dinosaursapp.ui.screen.aqua.AquaViewModel
-import com.example.dinosaursapp.ui.screen.land.LandViewModel
 import com.example.dinosaursapp.ui.screen.land.main.MainLandViewModel
 import com.example.dinosaursapp.ui.screen.land.tab.creta.CretaceousViewModel
 import com.example.dinosaursapp.ui.screen.land.tab.jura.JurassicViewModel
@@ -26,11 +25,6 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     abstract fun provideMainViewModel(viewModel: MainViewModel): ViewModel
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(LandViewModel::class)
-    abstract fun provideLandViewModel(viewModel: LandViewModel): ViewModel
 
     @Binds
     @IntoMap
