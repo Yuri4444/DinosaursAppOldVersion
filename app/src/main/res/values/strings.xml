@@ -6,4 +6,7 @@
     <string name="air_dinosaurs">Air dinosaurs</string>
     <string name="land_dinosaurs">Land dinosaurs</string>
     <string name="water_dinosaurs">Water dinosaurs</string>
+    <string name="triassic">Triassic</string>
+    <string name="jurassic">Jurassic</string>
+    <string name="cretaceous">Cretaceous</string>
 </resources>

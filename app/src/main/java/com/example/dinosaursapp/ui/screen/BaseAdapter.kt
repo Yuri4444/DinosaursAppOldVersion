@@ -1,4 +1,4 @@
-package com.example.dinosaursapp.ui.screen.land.adapter
+package com.example.dinosaursapp.ui.screen
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -12,7 +12,6 @@ import com.example.dinosaursapp.data.network.model.Air
 import com.example.dinosaursapp.data.network.model.Land
 import com.example.dinosaursapp.data.network.model.Aqua
 import kotlinx.android.synthetic.main.item_base.view.*
-import java.lang.RuntimeException
 import java.util.*
 
 class BaseAdapter(private val context: Context) :

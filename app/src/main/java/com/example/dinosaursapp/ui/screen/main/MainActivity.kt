@@ -21,7 +21,7 @@ class MainActivity : AbsActivity<MainViewModel>() {
         val navController = findNavController(R.id.fragmentContainerView)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.landFragment,
+                R.id.mainLandFragment,
                 R.id.aquaFragment,
                 R.id.airFragment
             )

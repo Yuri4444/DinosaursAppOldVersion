@@ -4,9 +4,8 @@ import android.os.Bundle
 import android.view.View
 import com.example.dinosaursapp.R
 import com.example.dinosaursapp.ui.base.AbsFragment
-import com.example.dinosaursapp.ui.screen.land.adapter.BaseAdapter
+import com.example.dinosaursapp.ui.screen.BaseAdapter
 import kotlinx.android.synthetic.main.fragment_aqua.*
-import kotlinx.android.synthetic.main.fragment_land.*
 
 class AquaFragment : AbsFragment<AquaViewModel>() {
 
