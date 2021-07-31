@@ -18,7 +18,8 @@ import java.util.*
 
 class BaseAdapter(
     private val context: Context,
-    private val itemClick: (id: DinosaurType) -> Unit ) :
+    private val itemClick: (id: DinosaurType) -> Unit
+) :
     RecyclerView.Adapter<BaseAdapter.ViewHolder>() {
 
     private val list: MutableList<DinosaurType> = ArrayList()
@@ -76,6 +77,10 @@ class BaseAdapter(
 
             val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
             Glide.with(context).load(type.imageMain).apply(requestOptions).into(itemView.ivImage)
+            when (type.isPredator) {
+                true -> itemView.ivIsPredator.setImageResource(R.drawable.ic_predator_yes)
+                false -> itemView.ivIsPredator.setImageResource(R.drawable.ic_predator_no)
+            }
             itemView.tvTitle.text = type.title
         }
     }
