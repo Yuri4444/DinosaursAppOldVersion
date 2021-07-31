@@ -11,6 +11,7 @@ import com.example.dinosaursapp.ui.screen.land.tab.creta.CretaceousViewModel
 import com.example.dinosaursapp.ui.screen.land.tab.jura.JurassicViewModel
 import com.example.dinosaursapp.ui.screen.land.tab.trias.TriassicViewModel
 import com.example.dinosaursapp.ui.screen.main.MainViewModel
+import com.example.dinosaursapp.ui.screen.splash.SplashViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -25,6 +26,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MainViewModel::class)
     abstract fun provideMainViewModel(viewModel: MainViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SplashViewModel::class)
+    abstract fun provideSplashViewModel(viewModel: SplashViewModel): ViewModel
 
     @Binds
     @IntoMap

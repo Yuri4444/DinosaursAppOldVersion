@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DinosaursApp</string>
+    <string name="app_name">Dinosaurs World</string>
     <string name="land">Land</string>
     <string name="water">Water</string>
     <string name="air">Air</string>
