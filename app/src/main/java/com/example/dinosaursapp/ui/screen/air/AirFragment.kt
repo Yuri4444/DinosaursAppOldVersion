@@ -10,7 +10,9 @@ import kotlinx.android.synthetic.main.fragment_air.*
 class AirFragment : AbsFragment<AirViewModel>() {
 
     private val adapter by lazy {
-        BaseAdapter(requireContext())
+        BaseAdapter(requireContext(), {
+
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

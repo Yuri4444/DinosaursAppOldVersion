@@ -1,5 +1,6 @@
 package com.example.dinosaursapp.ui.screen.land.tab.trias
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.example.dinosaursapp.R
@@ -11,7 +12,9 @@ import kotlinx.android.synthetic.main.fragment_triassic.*
 class TriassicFragment : AbsFragment<TriassicViewModel>() {
 
     private val adapter by lazy {
-        BaseAdapter(requireContext())
+        BaseAdapter(requireContext(), {
+
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

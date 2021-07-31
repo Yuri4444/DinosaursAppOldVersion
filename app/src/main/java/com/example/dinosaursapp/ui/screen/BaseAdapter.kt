@@ -16,7 +16,9 @@ import com.example.dinosaursapp.data.network.model.Aqua
 import kotlinx.android.synthetic.main.item_base.view.*
 import java.util.*
 
-class BaseAdapter(private val context: Context) :
+class BaseAdapter(
+    private val context: Context,
+    private val itemClick: (id: DinosaurType) -> Unit ) :
     RecyclerView.Adapter<BaseAdapter.ViewHolder>() {
 
     private val list: MutableList<DinosaurType> = ArrayList()
@@ -62,6 +64,12 @@ class BaseAdapter(private val context: Context) :
     override fun getItemCount() = list.size
 
     inner class LandViewHolder(itemView: View) : ViewHolder(itemView) {
+
+        init {
+            itemView.setOnClickListener {
+                itemClick(list[adapterPosition])
+            }
+        }
 
         override fun bind(item: DinosaurType) {
             val type = item as Land

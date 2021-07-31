@@ -10,7 +10,9 @@ import kotlinx.android.synthetic.main.fragment_jurassic.*
 class JurassicFragment : AbsFragment<JurassicViewModel>() {
 
     private val adapter by lazy {
-        BaseAdapter(requireContext())
+        BaseAdapter(requireContext(), {
+
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

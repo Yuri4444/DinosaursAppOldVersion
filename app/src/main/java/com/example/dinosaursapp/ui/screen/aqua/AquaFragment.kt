@@ -10,7 +10,9 @@ import kotlinx.android.synthetic.main.fragment_aqua.*
 class AquaFragment : AbsFragment<AquaViewModel>() {
 
     private val adapter by lazy {
-        BaseAdapter(requireContext())
+        BaseAdapter(requireContext(), {
+
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
