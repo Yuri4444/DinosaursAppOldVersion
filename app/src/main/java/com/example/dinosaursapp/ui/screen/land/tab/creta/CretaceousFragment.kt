@@ -6,6 +6,8 @@ import com.example.dinosaursapp.R
 import com.example.dinosaursapp.ui.base.AbsFragment
 import com.example.dinosaursapp.ui.screen.BaseAdapter
 import com.example.dinosaursapp.ui.screen.details.DetailActivity
+import com.example.dinosaursapp.utils.isFirstVisible
+import com.example.dinosaursapp.utils.isLastVisible
 import kotlinx.android.synthetic.main.fragment_cretaceous.*
 
 class CretaceousFragment : AbsFragment<CretaceousViewModel>() {
@@ -20,8 +22,20 @@ class CretaceousFragment : AbsFragment<CretaceousViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         rvCretaceous.adapter = adapter
 
-        viewModel?.livedata?.observe(viewLifecycleOwner, {
-            adapter.setData(it)
+        viewModel?.livedata?.observe(viewLifecycleOwner, { list ->
+            adapter.setData(list)
+
+            fabCretaceous.setOnClickListener {
+                if (rvCretaceous.isFirstVisible()) {
+                    fabCretaceous.setImageResource(R.drawable.ic_arrow_up)
+                    rvCretaceous.smoothScrollToPosition(list.lastIndex)
+                }
+                if (rvCretaceous.isLastVisible()) {
+                    fabCretaceous.setImageResource(R.drawable.ic_arrow_down)
+                    rvCretaceous.smoothScrollToPosition(list.lastIndex - list.lastIndex)
+                }
+
+            }
         })
 
         viewModel?.fetchData()
