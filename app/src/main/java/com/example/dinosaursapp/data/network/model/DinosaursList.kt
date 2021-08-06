@@ -1,9 +1,10 @@
 package com.example.dinosaursapp.data.network.model
 
+import android.content.Context
 import android.os.Parcelable
+import com.example.dinosaursapp.utils.getCurrentLanguage
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
-import java.io.Serializable
 
 data class DinosaursList(
 
@@ -19,6 +20,26 @@ data class Dinosaurs(
     var ru: RussianVersion? = null
 )
 
+private fun localizedField(
+    context: Context,
+    enField: EnglishVersion?,
+    ruField: RussianVersion?
+): CurrentLanguage? {
+    val lang = context.getCurrentLanguage()
+    val result = when (lang) {
+        "en" -> enField
+        "ru" -> ruField
+        else -> ruField
+    }
+    return result
+}
+
+fun Dinosaurs.localizedCurrentLang(context: Context) = localizedField(
+    context,
+    en, ru
+)
+
+@Parcelize
 data class EnglishVersion(
     @SerializedName("Land")
     var land: List<Land>? = ArrayList(),
@@ -28,8 +49,9 @@ data class EnglishVersion(
 
     @SerializedName("Fly")
     var air: List<Air>? = ArrayList()
-)
+) : CurrentLanguage
 
+@Parcelize
 data class RussianVersion(
     @SerializedName("Land")
     var land: List<Land>? = ArrayList(),
@@ -39,7 +61,7 @@ data class RussianVersion(
 
     @SerializedName("Fly")
     var air: List<Air>? = ArrayList()
-)
+) : CurrentLanguage
 
 @Parcelize
 data class Land(

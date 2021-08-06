@@ -1,7 +1,13 @@
 package com.example.dinosaursapp.utils
 
+import android.content.Context
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.util.*
+
+fun Context.getCurrentLanguage(): String {
+    return if (Locale.getDefault().language == Locale("ru").language) "ru" else "en"
+}
 
 fun RecyclerView.isFirstVisible(): Boolean {
     val layoutManager = this.layoutManager as LinearLayoutManager
