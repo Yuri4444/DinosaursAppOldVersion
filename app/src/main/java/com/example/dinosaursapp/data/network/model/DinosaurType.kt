@@ -1,3 +1,5 @@
 package com.example.dinosaursapp.data.network.model
 
-interface DinosaurType
+import android.os.Parcelable
+
+interface DinosaurType : Parcelable

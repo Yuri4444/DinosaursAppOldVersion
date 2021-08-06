@@ -9,16 +9,16 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.dinosaursapp.R
-import com.example.dinosaursapp.data.network.model.DinosaurType
 import com.example.dinosaursapp.data.network.model.Air
-import com.example.dinosaursapp.data.network.model.Land
 import com.example.dinosaursapp.data.network.model.Aqua
+import com.example.dinosaursapp.data.network.model.DinosaurType
+import com.example.dinosaursapp.data.network.model.Land
 import kotlinx.android.synthetic.main.item_base.view.*
 import java.util.*
 
 class BaseAdapter(
     private val context: Context,
-    private val itemClick: (id: DinosaurType) -> Unit
+    private val itemClick: (position: Int, id: DinosaurType) -> Unit
 ) :
     RecyclerView.Adapter<BaseAdapter.ViewHolder>() {
 
@@ -68,7 +68,7 @@ class BaseAdapter(
 
         init {
             itemView.setOnClickListener {
-                itemClick(list[adapterPosition])
+                itemClick(this.adapterPosition, list[adapterPosition])
             }
         }
 
@@ -87,6 +87,12 @@ class BaseAdapter(
 
     inner class AquaViewHolder(itemView: View) : ViewHolder(itemView) {
 
+        init {
+            itemView.setOnClickListener {
+                itemClick(this.adapterPosition, list[adapterPosition])
+            }
+        }
+
         override fun bind(item: DinosaurType) {
             val type = item as Aqua
 
@@ -97,6 +103,12 @@ class BaseAdapter(
     }
 
     inner class AirViewHolder(itemView: View) : ViewHolder(itemView) {
+
+        init {
+            itemView.setOnClickListener {
+                itemClick(this.adapterPosition, list[adapterPosition])
+            }
+        }
 
         override fun bind(item: DinosaurType) {
             val type = item as Air

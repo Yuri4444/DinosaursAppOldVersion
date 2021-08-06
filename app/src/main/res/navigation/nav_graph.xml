@@ -20,4 +20,19 @@
         android:name="com.example.dinosaursapp.ui.screen.land.main.MainLandFragment"
         android:label="@string/land_dinosaurs"
         tools:layout="@layout/fragment_main_land" />
+    <fragment
+        android:id="@+id/triassicFragment"
+        android:name="com.example.dinosaursapp.ui.screen.land.tab.trias.TriassicFragment"
+        android:label="fragment_triassic"
+        tools:layout="@layout/fragment_triassic" />
+    <fragment
+        android:id="@+id/jurassicFragment"
+        android:name="com.example.dinosaursapp.ui.screen.land.tab.jura.JurassicFragment"
+        android:label="fragment_jurassic"
+        tools:layout="@layout/fragment_jurassic" />
+    <fragment
+        android:id="@+id/cretaceousFragment"
+        android:name="com.example.dinosaursapp.ui.screen.land.tab.creta.CretaceousFragment"
+        android:label="fragment_cretaceous"
+        tools:layout="@layout/fragment_cretaceous" />
 </navigation>

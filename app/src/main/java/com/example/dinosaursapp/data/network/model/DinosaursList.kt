@@ -1,13 +1,15 @@
 package com.example.dinosaursapp.data.network.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
 
 data class DinosaursList(
 
     @SerializedName("Dinousaurs")
     var dinosaurs: Dinosaurs? = null
-) : Serializable
+)
 
 data class Dinosaurs(
     @SerializedName("en")
@@ -15,7 +17,7 @@ data class Dinosaurs(
 
     @SerializedName("ru")
     var ru: RussianVersion? = null
-) : Serializable
+)
 
 data class EnglishVersion(
     @SerializedName("Land")
@@ -26,7 +28,7 @@ data class EnglishVersion(
 
     @SerializedName("Fly")
     var air: List<Air>? = ArrayList()
-) : Serializable
+)
 
 data class RussianVersion(
     @SerializedName("Land")
@@ -37,8 +39,9 @@ data class RussianVersion(
 
     @SerializedName("Fly")
     var air: List<Air>? = ArrayList()
-) : Serializable
+)
 
+@Parcelize
 data class Land(
 
     @SerializedName("titleRussian")
@@ -65,8 +68,9 @@ data class Land(
     @SerializedName("isOnSaleRussian")
     var isPredator: Boolean? = false
 
-) : Serializable, DinosaurType
+) : Parcelable, DinosaurType
 
+@Parcelize
 data class Aqua(
 
     @SerializedName("titleSwim")
@@ -88,8 +92,9 @@ data class Aqua(
     var takenFrom: String? = ""
 
 
-) : Serializable, DinosaurType
+) : Parcelable, DinosaurType
 
+@Parcelize
 data class Air(
 
     @SerializedName("title")
@@ -112,4 +117,4 @@ data class Air(
 
     @SerializedName("taken")
     var takenFrom: String? = ""
-) : Serializable, DinosaurType
+) : Parcelable, DinosaurType

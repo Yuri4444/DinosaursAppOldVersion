@@ -24,6 +24,8 @@
 
         <activity android:name=".ui.screen.main.MainActivity" />
 
+        <activity android:name=".ui.screen.details.DetailActivity" android:theme="@style/DetailTheme"/>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

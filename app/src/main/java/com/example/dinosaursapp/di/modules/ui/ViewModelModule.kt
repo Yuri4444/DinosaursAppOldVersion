@@ -6,6 +6,7 @@ import com.example.dinosaursapp.di.ViewModelFactory
 import com.example.dinosaursapp.di.ViewModelKey
 import com.example.dinosaursapp.ui.screen.air.AirViewModel
 import com.example.dinosaursapp.ui.screen.aqua.AquaViewModel
+import com.example.dinosaursapp.ui.screen.details.DetailViewModel
 import com.example.dinosaursapp.ui.screen.land.main.MainLandViewModel
 import com.example.dinosaursapp.ui.screen.land.tab.creta.CretaceousViewModel
 import com.example.dinosaursapp.ui.screen.land.tab.jura.JurassicViewModel
@@ -31,6 +32,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(SplashViewModel::class)
     abstract fun provideSplashViewModel(viewModel: SplashViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(DetailViewModel::class)
+    abstract fun provideDetailViewModel(viewModel : DetailViewModel): ViewModel
 
     @Binds
     @IntoMap
