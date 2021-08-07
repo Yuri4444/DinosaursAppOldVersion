@@ -8,13 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="greenBlack">#052B02</color>
+    <color name="greenDark">#052B02</color>
     <color name="greenLight">#044704</color>
 
-    <color name="blueBlack">#020D51</color>
+    <color name="blueDark">#020D51</color>
     <color name="blueLight">#0A0ACD</color>
 
-    <color name="redBlack">#5E0707</color>
+    <color name="redDark">#5E0707</color>
     <color name="redLight">#8F0202</color>
 
 </resources>

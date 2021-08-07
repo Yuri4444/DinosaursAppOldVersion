@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/greenBlack">
+    android:background="@color/greenDark">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="match_parent"

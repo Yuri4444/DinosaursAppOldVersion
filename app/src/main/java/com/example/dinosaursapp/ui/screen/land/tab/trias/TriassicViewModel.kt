@@ -22,7 +22,8 @@ class TriassicViewModel @Inject constructor(
             io = {
                 when (landUseCase.getDinosaursList()) {
                     is EnglishVersion -> {
-                        (landUseCase.getDinosaursList() as EnglishVersion).land?.filter { it.detail!!.contains("Triassic") }
+                        (landUseCase.getDinosaursList() as EnglishVersion).land?.filter { it.detail!!.contains("Triassic") ||
+                        it.detail!!.contains("Perm")}
                     }
                     else -> {
                         (landUseCase.getDinosaursList() as RussianVersion).land?.filter { it.detail!!.contains("триас") ||

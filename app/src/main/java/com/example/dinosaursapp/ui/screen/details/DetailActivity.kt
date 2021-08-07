@@ -2,7 +2,11 @@ package com.example.dinosaursapp.ui.screen.details
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
+import android.view.Window
+import android.view.WindowManager
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.example.dinosaursapp.R
 import com.example.dinosaursapp.data.network.model.Air
@@ -15,15 +19,25 @@ import kotlinx.android.synthetic.main.activity_detail.*
 
 class DetailActivity : AbsActivity<DetailViewModel>() {
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val type = intent.extras?.getParcelable(KEY) as DinosaurType?
 
         when (type) {
-            is Land -> getLand(type)
-            is Aqua -> getAqua(type)
-            is Air -> getAir(type)
+            is Land -> {
+                getLand(type)
+            }
+            is Aqua -> {
+                setPageColor(R.color.blueDark)
+                getAqua(type)
+
+            }
+            is Air -> {
+                setPageColor(R.color.redDark)
+                getAir(type)
+            }
         }
     }
 
@@ -57,6 +71,17 @@ class DetailActivity : AbsActivity<DetailViewModel>() {
     override fun provideLayoutId() = R.layout.activity_detail
 
     override fun provideViewModelClass() = DetailViewModel::class
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    fun setPageColor(color: Int) {
+        val window: Window = this.window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.statusBarColor = this.resources.getColor(color, theme)
+        window.navigationBarColor = this.resources.getColor(color, theme)
+        tvTitle.setBackgroundColor(resources.getColor(color, theme))
+        llDetails.setBackgroundColor(resources.getColor(color, theme))
+    }
 
     companion object {
 

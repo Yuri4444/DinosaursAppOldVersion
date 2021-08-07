@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.DinosaursApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimaryVariant">@color/greenBlack</item>
+        <item name="colorPrimaryVariant">@color/greenDark</item>
         <item name="colorPrimary">@color/greenLight</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -11,7 +11,7 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/greenBlack</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/greenDark</item>
         <item name="android:windowLightStatusBar" tools:targetApi="27">false</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
         <!-- Customize your theme here. -->
@@ -21,8 +21,8 @@
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="android:statusBarColor">@color/greenBlack</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/greenBlack</item>
+        <item name="android:statusBarColor">@color/greenDark</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/greenDark</item>
         <item name="android:windowLightStatusBar" tools:targetApi="27">false</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
     </style>
@@ -31,8 +31,8 @@
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="android:statusBarColor">@color/greenBlack</item>
-        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/greenBlack</item>
+        <item name="android:statusBarColor">@color/greenDark</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@color/greenDark</item>
         <item name="android:windowLightStatusBar" tools:targetApi="27">false</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="27">false</item>
 
