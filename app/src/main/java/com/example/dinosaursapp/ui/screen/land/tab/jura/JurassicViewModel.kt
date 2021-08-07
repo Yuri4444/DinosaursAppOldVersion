@@ -13,22 +13,46 @@ class JurassicViewModel @Inject constructor(
     private val landUseCase: LandUseCase
 ) : AbsViewModel() {
 
-    val livedata = MutableLiveData<List<Land>>()
+    val liveData = MutableLiveData<List<Land>>()
 
-    fun fetchData() {
+    fun fetch() {
         ioToUi(
             io = {
                 when (landUseCase.getDinosaursList()) {
                     is EnglishVersion -> {
-                        (landUseCase.getDinosaursList() as EnglishVersion).land?.filter { it.detail!!.contains("Jurassic") }
+                        (landUseCase.getDinosaursList() as EnglishVersion).land
+                            ?.filter { it.detail!!.toLowerCase().contains("jurassic") }
                     }
                     else -> {
-                        (landUseCase.getDinosaursList() as RussianVersion).land?.filter { it.detail!!.contains("юрский") }
+                        (landUseCase.getDinosaursList() as RussianVersion).land
+                            ?.filter { it.detail!!.toLowerCase().contains("юрский") }
                     }
                 }
             },
             ui = {
-                livedata.value = it
+                liveData.value = it
+            }
+        )
+    }
+
+    fun searchItem(title: String) {
+        ioToUi(
+            io = {
+                when (landUseCase.getDinosaursList()) {
+                    is EnglishVersion -> {
+                        (landUseCase.getDinosaursList() as EnglishVersion).land
+                            ?.filter { it.detail!!.toLowerCase().contains("jurassic")
+                                    && it.title!!.toLowerCase().contains(title) }
+                    }
+                    else -> {
+                        (landUseCase.getDinosaursList() as RussianVersion).land
+                            ?.filter { it.detail!!.toLowerCase().contains("юрский")
+                                    && it.title!!.toLowerCase().contains(title) }
+                    }
+                }
+            },
+            ui = {
+                liveData.value = it
             }
         )
     }

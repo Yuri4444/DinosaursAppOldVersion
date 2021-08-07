@@ -1,7 +1,10 @@
 package com.example.dinosaursapp.ui.screen.air
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import com.example.dinosaursapp.R
 import com.example.dinosaursapp.ui.base.AbsFragment
 import com.example.dinosaursapp.ui.screen.BaseAdapter
@@ -40,9 +43,41 @@ class AirFragment : AbsFragment<AirViewModel>() {
         })
 
         viewModel?.fetch()
+
+        setHasOptionsMenu(true)
     }
 
     override fun provideLayoutId() = R.layout.fragment_air
 
     override fun provideViewModelClass() = AirViewModel::class
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.menu_search, menu)
+
+        val searchItem = menu.findItem(R.id.menu_search)
+        val searchView = searchItem.actionView as SearchView
+
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                if (!query.isNullOrBlank()) {
+                    rvAir.scrollToPosition(0)
+                    viewModel?.searchItem(query)
+                    searchView.clearFocus()
+                }
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                if (!newText.isNullOrBlank()) {
+                    viewModel?.searchItem(newText)
+                } else {
+                    viewModel?.fetch()
+                }
+                return true
+            }
+
+        })
+    }
+
 }

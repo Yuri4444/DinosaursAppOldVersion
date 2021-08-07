@@ -33,4 +33,24 @@ class AirViewModel @Inject constructor(
         )
     }
 
+    fun searchItem(title: String) {
+        ioToUi(
+            io = {
+                when (netRepository.getDinosaursList()) {
+                    is EnglishVersion -> {
+                        (netRepository.getDinosaursList() as EnglishVersion).air
+                            ?.filter { it.title!!.toLowerCase().contains(title)}
+                    }
+                    else -> {
+                        (netRepository.getDinosaursList() as RussianVersion).air
+                            ?.filter { it.title!!.toLowerCase().contains(title)}
+                    }
+                }
+            },
+            ui = {
+                liveData.value = it
+            }
+        )
+    }
+
 }

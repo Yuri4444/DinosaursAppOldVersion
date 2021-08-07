@@ -20,5 +20,6 @@
     <string name="description_land"> Habitat time:\n Length:\n Weight:\n First found:\n Meaning of the name:</string>
     <string name="description_aqua"> Habitat time:\nLength:\nFirst found:\nMeaning of the name:</string>
     <string name="description_air"> Habitat time:\nWingspan:\nFirst found:\nMeaning of the name:</string>
+    <string name="search">Search</string>
 
 </resources>
