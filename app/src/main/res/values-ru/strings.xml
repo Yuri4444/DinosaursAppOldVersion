@@ -18,7 +18,7 @@
     <string name="cretaceous">Меловой период</string>
 
     <!--    Details-->
-    <string name="description_land"> Время обитания:\n Длина:\n Вес:\n Впервые найден:\n Значение имени:</string>
+    <string name="description_land"> Время обитания:\n Высота\n Длина:\n Вес:\n Впервые найден:\n Значение имени:</string>
     <string name="description_aqua"> Время обитания:\n Длина:\n Впервые найден:\n Значение имени:</string>
     <string name="description_air"> Время обитания:\n Розмах крыльев:\n Впервые найден:\n Значение имени:</string>
     <string name="search">Искать</string>
