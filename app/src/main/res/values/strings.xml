@@ -4,7 +4,7 @@
     <!--    Title toolbar-->
     <string name="air_dinosaurs">Air dinosaurs</string>
     <string name="land_dinosaurs">Land dinosaurs</string>
-    <string name="water_dinosaurs">Water dinosaurs</string>
+    <string name="aqua_dinosaurs">Water dinosaurs</string>
 
     <!--    ButtonNavigationBar-->
     <string name="land">Land</string>

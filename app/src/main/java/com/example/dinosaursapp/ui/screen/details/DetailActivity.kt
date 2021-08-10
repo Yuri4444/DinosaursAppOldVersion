@@ -27,6 +27,7 @@ class DetailActivity : AbsActivity<DetailViewModel>() {
 
         when (type) {
             is Land -> {
+                setPageColor(R.color.greenDark)
                 getLand(type)
             }
             is Aqua -> {

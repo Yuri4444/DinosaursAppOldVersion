@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/aquaFragment"
         android:name="com.example.dinosaursapp.ui.screen.aqua.AquaFragment"
-        android:label="@string/water_dinosaurs"
+        android:label="@string/aqua_dinosaurs"
         tools:layout="@layout/fragment_aqua" />
     <fragment
         android:id="@+id/mainLandFragment"

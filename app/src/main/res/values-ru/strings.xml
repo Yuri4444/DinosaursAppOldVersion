@@ -4,7 +4,7 @@
 
     <!--    Title toolbar-->
     <string name="land_dinosaurs">Сухопутные динозавры</string>
-    <string name="water_dinosaurs">Водные динозавры</string>
+    <string name="aqua_dinosaurs">Водные динозавры</string>
     <string name="air_dinosaurs">Воздушные динозавры</string>
 
     <!--    ButtonNavigationBar-->
