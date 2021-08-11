@@ -18,6 +18,7 @@ class MainActivity : AbsActivity<MainViewModel>() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.elevation = 0F
         provideBottomNavigation()
     }
 
