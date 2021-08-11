@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:backgroundTint="@color/white"
-        android:src="@drawable/ic_arrow_down" />
+        android:backgroundTint="@color/greenLight"
+        app:srcCompat="@drawable/ic_arrow_down"
+        app:tint="@color/white" />
 
 </FrameLayout>
