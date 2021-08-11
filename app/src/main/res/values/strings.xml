@@ -21,5 +21,6 @@
     <string name="description_aqua"> Habitat time:\nLength:\nFirst found:\nMeaning of the name:</string>
     <string name="description_air"> Habitat time:\nWingspan:\nFirst found:\nMeaning of the name:</string>
     <string name="search">Search</string>
+    <string name="change_mode">Change mode</string>
 
 </resources>
