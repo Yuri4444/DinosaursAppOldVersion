@@ -7,6 +7,8 @@
     android:background="@drawable/ic_main_air"
     tools:context=".ui.screen.air.AirFragment">
 
+    <include layout="@layout/shimmer_layout"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAir"
         android:layout_width="match_parent"

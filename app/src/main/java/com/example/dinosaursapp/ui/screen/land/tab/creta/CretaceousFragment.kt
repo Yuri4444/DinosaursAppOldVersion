@@ -9,13 +9,14 @@ import com.example.dinosaursapp.R
 import com.example.dinosaursapp.ui.base.AbsFragment
 import com.example.dinosaursapp.ui.screen.BaseAdapter
 import com.example.dinosaursapp.ui.screen.details.DetailActivity
+import com.example.dinosaursapp.utils.gone
 import com.example.dinosaursapp.utils.isFirstVisible
 import com.example.dinosaursapp.utils.isLastVisible
+import com.example.dinosaursapp.utils.visible
 import kotlinx.android.synthetic.main.fragment_cretaceous.*
+import kotlinx.android.synthetic.main.shimmer_layout.*
 
 class CretaceousFragment : AbsFragment<CretaceousViewModel>() {
-
-    private var flagFabChangeMode = true
 
     private val adapter by lazy {
         BaseAdapter(requireContext()) { _, item ->
@@ -28,22 +29,39 @@ class CretaceousFragment : AbsFragment<CretaceousViewModel>() {
 
         fabChangeMode.setOnClickListener {
 
-            if (flagFabChangeMode) {
+            if (prefStorage.getStateMainList()) {
                 adapter.isBigModeRecyclerView(false)
                 rvCretaceous.adapter = adapter
                 fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_big))
-                flagFabChangeMode = false
+                prefStorage.saveStateMainList(false)
             } else {
                 adapter.isBigModeRecyclerView(true)
                 rvCretaceous.adapter = adapter
                 fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_little))
-                flagFabChangeMode = true
+                prefStorage.saveStateMainList(true)
             }
         }
+
+        when (prefStorage.getStateMainList()) {
+            true -> {
+                shimmerLayoutBig.startShimmerAnimation()
+                shimmerLayoutBig.visible()
+                adapter.isBigModeRecyclerView(true)
+            }
+            false -> {
+                shimmerLayoutLittle.startShimmerAnimation()
+                shimmerLayoutLittle.visible()
+                adapter.isBigModeRecyclerView(false)
+            }
+        }
+
         rvCretaceous.adapter = adapter
 
         viewModel?.liveData?.observe(viewLifecycleOwner, { list ->
             adapter.setData(list)
+
+            shimmerLayoutBig.gone()
+            shimmerLayoutLittle.gone()
 
             fabCretaceous.setOnClickListener {
                 if (rvCretaceous.isFirstVisible()) {

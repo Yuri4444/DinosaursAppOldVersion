@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".ui.screen.land.tab.creta.CretaceousFragment">
 
+    <include layout="@layout/shimmer_layout"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCretaceous"
         android:layout_width="match_parent"
