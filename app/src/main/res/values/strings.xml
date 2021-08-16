@@ -1,3 +1,26 @@
 <resources>
-    <string name="app_name">DinosaursApp</string>
+    <string name="app_name">Dinosaurs World</string>
+
+    <!--    Title toolbar-->
+    <string name="air_dinosaurs">Air dinosaurs</string>
+    <string name="land_dinosaurs">Land dinosaurs</string>
+    <string name="aqua_dinosaurs">Water dinosaurs</string>
+
+    <!--    ButtonNavigationBar-->
+    <string name="land">Land</string>
+    <string name="water">Water</string>
+    <string name="air">Air</string>
+
+    <!--    TabLayout-->
+    <string name="triassic">Triassic</string>
+    <string name="jurassic">Jurassic</string>
+    <string name="cretaceous">Cretaceous</string>
+
+    <!--    Details-->
+    <string name="description_land"> Habitat time:\n Height\n Length:\n Weight:\n First found:\n Meaning of the name:</string>
+    <string name="description_aqua"> Habitat time:\nLength:\nFirst found:\nMeaning of the name:</string>
+    <string name="description_air"> Habitat time:\nWingspan:\nFirst found:\nMeaning of the name:</string>
+    <string name="search">Search</string>
+    <string name="change_mode">Change mode</string>
+
 </resources>

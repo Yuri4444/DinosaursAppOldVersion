@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Мир динозавров</string>
+
+    <!--    Title toolbar-->
+    <string name="land_dinosaurs">Сухопутные динозавры</string>
+    <string name="aqua_dinosaurs">Водные динозавры</string>
+    <string name="air_dinosaurs">Воздушные динозавры</string>
+
+    <!--    ButtonNavigationBar-->
+    <string name="land">Сухопутные</string>
+    <string name="water">Водные</string>
+    <string name="air">Воздушные</string>
+
+    <!--    TabLayout-->
+    <string name="triassic">Триасский период</string>
+    <string name="jurassic">Юрский период</string>
+    <string name="cretaceous">Меловой период</string>
+
+    <!--    Details-->
+    <string name="description_land"> Время обитания:\n Высота\n Длина:\n Вес:\n Впервые найден:\n Значение имени:</string>
+    <string name="description_aqua"> Время обитания:\n Длина:\n Впервые найден:\n Значение имени:</string>
+    <string name="description_air"> Время обитания:\n Розмах крыльев:\n Впервые найден:\n Значение имени:</string>
+    <string name="search">Искать</string>
+    <string name="change_mode">Изменить тему</string>
+
+</resources>
