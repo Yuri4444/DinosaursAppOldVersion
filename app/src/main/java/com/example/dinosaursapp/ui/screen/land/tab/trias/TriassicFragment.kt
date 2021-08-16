@@ -11,10 +11,11 @@ import com.example.dinosaursapp.ui.screen.BaseAdapter
 import com.example.dinosaursapp.ui.screen.details.DetailActivity
 import com.example.dinosaursapp.utils.isFirstVisible
 import com.example.dinosaursapp.utils.isLastVisible
-import kotlinx.android.synthetic.main.fragment_cretaceous.*
 import kotlinx.android.synthetic.main.fragment_triassic.*
 
 class TriassicFragment : AbsFragment<TriassicViewModel>() {
+
+    private var flagFabChangeMode = true
 
     private val adapter by lazy {
         BaseAdapter(requireContext()) { _, item ->
@@ -24,6 +25,22 @@ class TriassicFragment : AbsFragment<TriassicViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        fabChangeMode.setOnClickListener {
+
+            if (flagFabChangeMode) {
+                adapter.isBigModeRecyclerView(false)
+                rvTriassic.adapter = adapter
+                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_big))
+                flagFabChangeMode = false
+            } else {
+                adapter.isBigModeRecyclerView(true)
+                rvTriassic.adapter = adapter
+                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_little))
+                flagFabChangeMode = true
+            }
+        }
+
         rvTriassic.adapter = adapter
 
         viewModel?.liveData?.observe(viewLifecycleOwner, { list ->
@@ -45,6 +62,7 @@ class TriassicFragment : AbsFragment<TriassicViewModel>() {
         viewModel?.fetch()
 
         setHasOptionsMenu(true)
+
 
     }
 

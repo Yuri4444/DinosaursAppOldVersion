@@ -15,6 +15,8 @@ import kotlinx.android.synthetic.main.fragment_air.*
 
 class AirFragment : AbsFragment<AirViewModel>() {
 
+    private var flagFabChangeMode = true
+
     private val adapter by lazy {
         BaseAdapter(requireContext()) { _, item ->
             startActivity(DetailActivity.open(requireContext(), item))
@@ -23,6 +25,21 @@ class AirFragment : AbsFragment<AirViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        fabChangeMode.setOnClickListener {
+
+            if (flagFabChangeMode) {
+                adapter.isBigModeRecyclerView(false)
+                rvAir.adapter = adapter
+                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_big))
+                flagFabChangeMode = false
+            } else {
+                adapter.isBigModeRecyclerView(true)
+                rvAir.adapter = adapter
+                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_little))
+                flagFabChangeMode = true
+            }
+        }
 
         rvAir.adapter = adapter
 

@@ -18,11 +18,15 @@ import java.util.*
 
 class BaseAdapter(
     private val context: Context,
-    private val itemClick: (position: Int, id: DinosaurType) -> Unit
-) :
+    private val itemClick: (position: Int, id: DinosaurType) -> Unit) :
     RecyclerView.Adapter<BaseAdapter.ViewHolder>() {
 
+    private var mode: Boolean = true
     private val list: MutableList<DinosaurType> = ArrayList()
+
+    fun isBigModeRecyclerView(mode: Boolean) {
+        this.mode = mode
+    }
 
     fun setData(newList: List<DinosaurType>) {
         list.clear()
@@ -44,21 +48,21 @@ class BaseAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
 
-        when (viewType) {
-            LAND -> LandViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false)
-            )
-            AQUA -> AquaViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false)
-            )
-            AIR -> AirViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false)
-            )
-            else -> AirViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false)
-            )
+        if (mode) {
+            when (viewType) {
+                LAND -> LandViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false))
+                AQUA -> AquaViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false))
+                AIR -> AirViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false))
+                else -> AirViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base, parent, false))
+            }
+        } else {
+            when (viewType) {
+                LAND -> LandViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base_little, parent, false))
+                AQUA -> AquaViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base_little, parent, false))
+                AIR -> AirViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base_little, parent, false))
+                else -> AirViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_base_little, parent, false))
+            }
         }
-
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) = holder.bind(list[position])
 
@@ -76,7 +80,11 @@ class BaseAdapter(
             val type = item as Land
 
             val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-            Glide.with(context).load(type.imageMain).apply(requestOptions).into(itemView.ivImage)
+            if (mode) {
+                Glide.with(context).load(type.imageMain).apply(requestOptions).into(itemView.ivImage)
+            } else {
+                Glide.with(context).load(type.imageMain).apply(requestOptions.optionalCircleCrop()).into(itemView.ivImage)
+            }
             when (type.isPredator) {
                 true -> itemView.ivIsPredator.setImageResource(R.drawable.ic_predator_yes)
                 false -> itemView.ivIsPredator.setImageResource(R.drawable.ic_predator_no)
@@ -97,7 +105,11 @@ class BaseAdapter(
             val type = item as Aqua
 
             val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-            Glide.with(context).load(type.image).apply(requestOptions).into(itemView.ivImage)
+            if (mode) {
+                Glide.with(context).load(type.image).apply(requestOptions).into(itemView.ivImage)
+            } else {
+                Glide.with(context).load(type.image).apply(requestOptions.optionalCircleCrop()).into(itemView.ivImage)
+            }
             itemView.tvTitle.text = type.title
         }
     }
@@ -114,7 +126,11 @@ class BaseAdapter(
             val type = item as Air
 
             val requestOptions = RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL)
-            Glide.with(context).load(type.image).apply(requestOptions).into(itemView.ivImage)
+            if (mode) {
+                Glide.with(context).load(type.image).apply(requestOptions).into(itemView.ivImage)
+            } else {
+                Glide.with(context).load(type.image).apply(requestOptions.optionalCircleCrop()).into(itemView.ivImage)
+            }
             itemView.tvTitle.text = type.title
         }
     }
