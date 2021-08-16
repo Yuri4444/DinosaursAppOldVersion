@@ -26,14 +26,4 @@
         app:srcCompat="@drawable/ic_arrow_down"
         app:tint="@color/white" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabChangeMode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start|bottom"
-        android:layout_margin="16dp"
-        android:backgroundTint="@color/blueLight"
-        app:srcCompat="@drawable/ic_mode_little"
-        app:tint="@color/white" />
-
 </FrameLayout>

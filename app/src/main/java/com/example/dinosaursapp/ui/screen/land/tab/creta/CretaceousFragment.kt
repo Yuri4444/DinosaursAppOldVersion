@@ -3,6 +3,7 @@ package com.example.dinosaursapp.ui.screen.land.tab.creta
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import com.example.dinosaursapp.R
@@ -26,21 +27,6 @@ class CretaceousFragment : AbsFragment<CretaceousViewModel>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        fabChangeMode.setOnClickListener {
-
-            if (prefStorage.getStateMainList()) {
-                adapter.isBigModeRecyclerView(false)
-                rvCretaceous.adapter = adapter
-                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_big))
-                prefStorage.saveStateMainList(false)
-            } else {
-                adapter.isBigModeRecyclerView(true)
-                rvCretaceous.adapter = adapter
-                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_little))
-                prefStorage.saveStateMainList(true)
-            }
-        }
 
         when (prefStorage.getStateMainList()) {
             true -> {
@@ -82,6 +68,18 @@ class CretaceousFragment : AbsFragment<CretaceousViewModel>() {
 
     }
 
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        when (prefStorage.getStateMainList()) {
+            true -> {
+                menu.removeItem(R.id.menu_change_to_little)
+            }
+            false -> {
+                menu.removeItem(R.id.menu_change_to_big)
+            }
+        }
+    }
+
     override fun provideLayoutId() = R.layout.fragment_cretaceous
     override fun provideViewModelClass() = CretaceousViewModel::class
 
@@ -112,5 +110,23 @@ class CretaceousFragment : AbsFragment<CretaceousViewModel>() {
             }
 
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_change_to_big -> {
+                adapter.isBigModeRecyclerView(false)
+                rvCretaceous.adapter = adapter
+                prefStorage.saveStateMainList(false)
+                activity?.invalidateOptionsMenu()
+            }
+            R.id.menu_change_to_little -> {
+                adapter.isBigModeRecyclerView(true)
+                rvCretaceous.adapter = adapter
+                prefStorage.saveStateMainList(true)
+                activity?.invalidateOptionsMenu()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

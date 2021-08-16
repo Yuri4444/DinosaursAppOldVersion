@@ -3,6 +3,7 @@ package com.example.dinosaursapp.ui.screen.land.tab.trias
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import com.example.dinosaursapp.R
@@ -27,21 +28,6 @@ class TriassicFragment : AbsFragment<TriassicViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fabChangeMode.setOnClickListener {
-
-            if (prefStorage.getStateMainList()) {
-                adapter.isBigModeRecyclerView(false)
-                rvTriassic.adapter = adapter
-                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_big))
-                prefStorage.saveStateMainList(false)
-            } else {
-                adapter.isBigModeRecyclerView(true)
-                rvTriassic.adapter = adapter
-                fabChangeMode.setImageDrawable(resources.getDrawable(R.drawable.ic_mode_little))
-                prefStorage.saveStateMainList(true)
-            }
-        }
-
         when (prefStorage.getStateMainList()) {
             true -> {
                 shimmerLayoutBig.startShimmerAnimation()
@@ -61,7 +47,9 @@ class TriassicFragment : AbsFragment<TriassicViewModel>() {
             adapter.setData(list)
 
             shimmerLayoutBig.gone()
+            shimmerLayoutBig.stopShimmerAnimation()
             shimmerLayoutLittle.gone()
+            shimmerLayoutLittle.stopShimmerAnimation()
 
             fabTriassic.setOnClickListener {
                 if (rvTriassic.isFirstVisible()) {
@@ -85,6 +73,18 @@ class TriassicFragment : AbsFragment<TriassicViewModel>() {
 
     override fun provideLayoutId() = R.layout.fragment_triassic
     override fun provideViewModelClass() = TriassicViewModel::class
+
+    override fun onPrepareOptionsMenu(menu: Menu) {
+        super.onPrepareOptionsMenu(menu)
+        when (prefStorage.getStateMainList()) {
+            true -> {
+                menu.removeItem(R.id.menu_change_to_little)
+            }
+            false -> {
+                menu.removeItem(R.id.menu_change_to_big)
+            }
+        }
+    }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
@@ -114,4 +114,23 @@ class TriassicFragment : AbsFragment<TriassicViewModel>() {
 
         })
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_change_to_big -> {
+                adapter.isBigModeRecyclerView(false)
+                rvTriassic.adapter = adapter
+                prefStorage.saveStateMainList(false)
+                activity?.invalidateOptionsMenu()
+            }
+            R.id.menu_change_to_little -> {
+                adapter.isBigModeRecyclerView(true)
+                rvTriassic.adapter = adapter
+                prefStorage.saveStateMainList(true)
+                activity?.invalidateOptionsMenu()
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }

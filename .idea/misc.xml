@@ -8,12 +8,14 @@
         <entry key="app/src/main/res/layout/fragment_aqua.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/layout/fragment_cretaceous.xml" value="0.27760416666666665" />
         <entry key="app/src/main/res/layout/fragment_jurassic.xml" value="0.3148717948717949" />
+        <entry key="app/src/main/res/layout/fragment_land.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/fragment_triassic.xml" value="0.301025641025641" />
         <entry key="app/src/main/res/layout/item_base.xml" value="0.3148717948717949" />
         <entry key="app/src/main/res/layout/item_base_little.xml" value="0.301025641025641" />
         <entry key="app/src/main/res/layout/shimmer_item_base.xml" value="0.31979166666666664" />
         <entry key="app/src/main/res/layout/shimmer_item_base_little.xml" value="0.30572916666666666" />
         <entry key="app/src/main/res/layout/shimmer_layout.xml" value="0.2916666666666667" />
+        <entry key="app/src/main/res/menu/menu_search.xml" value="0.335" />
       </map>
     </option>
   </component>
