@@ -11,6 +11,6 @@ class LandUseCase @Inject constructor(
 ) {
 
     suspend fun getDinosaursList() =
-        netRepository.getDinosaursList().dinosaurs?.localizedCurrentLang(context)
+        netRepository.getDinosaursList().dinosaurs?.localizedCurrentLang(context) 
 
 }
