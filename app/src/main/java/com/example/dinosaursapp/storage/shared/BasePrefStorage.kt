@@ -17,7 +17,7 @@ abstract class BasePrefStorage(context: Context) {
         val json = gson.toJson(obj)
         string(key, json)
     }
-
+//
     fun <T> obj(key: String, clazz: Class<T>): T? {
         val str = string(key)
         return gson.fromJson<T>(str, clazz)
