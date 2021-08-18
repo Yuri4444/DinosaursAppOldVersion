@@ -12,7 +12,7 @@ abstract class BasePrefStorage(context: Context) {
     private val prefs: SharedPreferences by lazy {
         context.getSharedPreferences("SharedPreferences", Context.MODE_PRIVATE)
     }
-
+//
     fun obj(key: String, obj: Any) {
         val json = gson.toJson(obj)
         string(key, json)
