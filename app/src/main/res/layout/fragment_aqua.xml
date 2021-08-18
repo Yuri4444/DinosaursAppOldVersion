@@ -7,8 +7,6 @@
     android:background="@drawable/ic_main_aqua"
     tools:context=".ui.screen.aqua.AquaFragment">
 
-    <include layout="@layout/shimmer_layout"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAqua"
         android:layout_width="match_parent"

@@ -9,15 +9,15 @@ import kotlinx.android.parcel.Parcelize
 data class DinosaursList(
 
     @SerializedName("Dinousaurs")
-    var dinosaurs: Dinosaurs? = null
+    val dinosaurs: Dinosaurs? = null
 )
 
 data class Dinosaurs(
     @SerializedName("en")
-    var en: EnglishVersion? = null,
+    val en: EnglishVersion? = null,
 
     @SerializedName("ru")
-    var ru: RussianVersion? = null
+    val ru: RussianVersion? = null
 )
 
 private fun localizedField(
@@ -42,53 +42,53 @@ fun Dinosaurs.localizedCurrentLang(context: Context) = localizedField(
 @Parcelize
 data class EnglishVersion(
     @SerializedName("Land")
-    var land: List<Land>? = ArrayList(),
+    val land: List<Land>? = ArrayList(),
 
     @SerializedName("Sweem")
-    var aqua: List<Aqua>? = ArrayList(),
+    val aqua: List<Aqua>? = ArrayList(),
 
     @SerializedName("Fly")
-    var air: List<Air>? = ArrayList()
+    val air: List<Air>? = ArrayList()
 ) : CurrentLanguage
 
 @Parcelize
 data class RussianVersion(
     @SerializedName("Land")
-    var land: List<Land>? = ArrayList(),
+    val land: List<Land>? = ArrayList(),
 
     @SerializedName("Sweem")
-    var aqua: List<Aqua>? = ArrayList(),
+    val aqua: List<Aqua>? = ArrayList(),
 
     @SerializedName("Fly")
-    var air: List<Air>? = ArrayList()
+    val air: List<Air>? = ArrayList()
 ) : CurrentLanguage
 
 @Parcelize
 data class Land(
 
     @SerializedName("titleRussian")
-    var title: String? = "",
+    val title: String? = "",
 
     @SerializedName("photoUrlRussian")
-    var imageMain: String? = "",
+    val imageMain: String? = "",
 
     @SerializedName("rusCompare")
-    var imageCompare: String? = "",
+    val imageCompare: String? = "",
 
     @SerializedName("detailRussian")
-    var detail: String? = "",
+    val detail: String? = "",
 
     @SerializedName("description1Russian")
-    var descriptionFirst: String? = "",
+    val descriptionFirst: String? = "",
 
     @SerializedName("description2Russian")
-    var descriptionSecond: String? = "",
+    val descriptionSecond: String? = "",
 
     @SerializedName("takenRussian")
-    var takenFrom: String? = "",
+    val takenFrom: String? = "",
 
     @SerializedName("isOnSaleRussian")
-    var isPredator: Boolean? = false
+    val isPredator: Boolean? = false
 
 ) : Parcelable, DinosaurType
 
@@ -96,22 +96,22 @@ data class Land(
 data class Aqua(
 
     @SerializedName("titleSwim")
-    var title: String? = "",
+    val title: String? = "",
 
     @SerializedName("photoUrlSwim")
-    var image: String? = "",
+    val image: String? = "",
 
     @SerializedName("detailSwim")
-    var detail: String? = "",
+    val detail: String? = "",
 
     @SerializedName("description1Swim")
-    var descriptionFirst: String? = "",
+    val descriptionFirst: String? = "",
 
     @SerializedName("description2Swim")
-    var descriptionSecond: String? = "",
+    val descriptionSecond: String? = "",
 
     @SerializedName("takenSwim")
-    var takenFrom: String? = ""
+    val takenFrom: String? = ""
 
 
 ) : Parcelable, DinosaurType
@@ -120,23 +120,23 @@ data class Aqua(
 data class Air(
 
     @SerializedName("title")
-    var title: String? = "",
+    val title: String? = "",
 
     @SerializedName("photo")
-    var image: String? = "",
+    val image: String? = "",
 
     @SerializedName("compare")
-    var imageCompare: String? = "",
+    val imageCompare: String? = "",
 
     @SerializedName("detail")
-    var detail: String? = "",
+    val detail: String? = "",
 
     @SerializedName("description1")
-    var descriptionFirst: String? = "",
+    val descriptionFirst: String? = "",
 
     @SerializedName("description2")
-    var descriptionSecond: String? = "",
+    val descriptionSecond: String? = "",
 
     @SerializedName("taken")
-    var takenFrom: String? = ""
+    val takenFrom: String? = ""
 ) : Parcelable, DinosaurType

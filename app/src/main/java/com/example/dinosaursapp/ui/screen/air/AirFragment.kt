@@ -10,12 +10,9 @@ import com.example.dinosaursapp.R
 import com.example.dinosaursapp.ui.base.AbsFragment
 import com.example.dinosaursapp.ui.screen.BaseAdapter
 import com.example.dinosaursapp.ui.screen.details.DetailActivity
-import com.example.dinosaursapp.utils.gone
 import com.example.dinosaursapp.utils.isFirstVisible
 import com.example.dinosaursapp.utils.isLastVisible
-import com.example.dinosaursapp.utils.visible
 import kotlinx.android.synthetic.main.fragment_air.*
-import kotlinx.android.synthetic.main.shimmer_layout.*
 
 class AirFragment : AbsFragment<AirViewModel>() {
 
@@ -30,13 +27,9 @@ class AirFragment : AbsFragment<AirViewModel>() {
 
         when (prefStorage.getStateMainList()) {
             true -> {
-                shimmerLayoutBig.startShimmerAnimation()
-                shimmerLayoutBig.visible()
                 adapter.isBigModeRecyclerView(true)
             }
             false -> {
-                shimmerLayoutLittle.startShimmerAnimation()
-                shimmerLayoutLittle.visible()
                 adapter.isBigModeRecyclerView(false)
             }
         }
@@ -45,9 +38,6 @@ class AirFragment : AbsFragment<AirViewModel>() {
 
         viewModel?.liveData?.observe(viewLifecycleOwner, { list ->
             adapter.setData(list)
-
-            shimmerLayoutBig.gone()
-            shimmerLayoutLittle.gone()
 
             fabAir.setOnClickListener {
                 if (rvAir.isFirstVisible()) {

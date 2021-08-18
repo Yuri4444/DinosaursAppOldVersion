@@ -2,12 +2,9 @@ package com.example.dinosaursapp.utils
 
 import android.content.Context
 import android.view.View
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.preferencesDataStore
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
-import java.util.prefs.Preferences
 
 fun Context.getCurrentLanguage(): String {
     return if (Locale.getDefault().language == Locale("ru").language) "ru" else "en"

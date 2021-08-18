@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.screen.land.tab.jura.JurassicFragment">
 
-    <include layout="@layout/shimmer_layout"/>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJurassic"
         android:layout_width="match_parent"
