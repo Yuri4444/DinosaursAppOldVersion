@@ -1,17 +1,24 @@
 package com.example.dinosaursapp.ui.screen.land.tab.trias
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import com.example.dinosaursapp.R
+import com.example.dinosaursapp.data.network.model.DinosaurType
+import com.example.dinosaursapp.data.network.model.Land
 import com.example.dinosaursapp.ui.base.AbsFragment
 import com.example.dinosaursapp.ui.screen.BaseAdapter
 import com.example.dinosaursapp.ui.screen.details.DetailActivity
 import com.example.dinosaursapp.utils.isFirstVisible
 import com.example.dinosaursapp.utils.isLastVisible
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_triassic.*
 
 class TriassicFragment : AbsFragment<TriassicViewModel>() {
@@ -33,6 +40,40 @@ class TriassicFragment : AbsFragment<TriassicViewModel>() {
                 adapter.isBigModeRecyclerView(false)
             }
         }
+        
+//        val database = FirebaseDatabase.getInstance()
+//        val myRef = database.getReference("Dinousaurs")
+//            .child("ru")
+//            .child("Land")
+//
+//
+//        val myList = arrayListOf<DinosaurType>()
+//
+//        myRef.addValueEventListener(object : ValueEventListener {
+//            override fun onDataChange(snapshot: DataSnapshot) {
+//
+//                for (triaSnapshot in snapshot.children) {
+//
+//                    val trias = triaSnapshot.getValue(Land::class.java)
+//
+//                    trias?.let { myList.add(it) }
+//
+////                    Log.e("dd", trias.toString())
+//
+//
+//
+//                }
+//                adapter.setData(myList)
+//                Log.e("HHH", myList.toString())
+////                val value = dataSnapshot.getValue(EnglishVersion::class.java)
+////                Log.e("TAG", value.toString())
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                // Failed to read value
+//                Log.e("TAG", error.toString())
+//            }
+//        })
 
         rvTriassic.adapter = adapter
 
