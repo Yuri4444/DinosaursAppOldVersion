@@ -14,7 +14,8 @@
         android:theme="@style/Theme.DinosaursApp">
         <activity
             android:name=".ui.screen.splash.SplashActivity"
-            android:theme="@style/SplashScreenTheme">
+            android:theme="@style/SplashScreenTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

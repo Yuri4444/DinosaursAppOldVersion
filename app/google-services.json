@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "306191708256",
-    "project_id": "dinosaursapp-ae9e2",
-    "storage_bucket": "dinosaursapp-ae9e2.appspot.com"
+    "project_number": "218584513852",
+    "firebase_url": "https://dinosaurapp-2ca09-default-rtdb.firebaseio.com",
+    "project_id": "dinosaurapp-2ca09",
+    "storage_bucket": "dinosaurapp-2ca09.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:306191708256:android:2499cd59aa80d94d4a9305",
+        "mobilesdk_app_id": "1:218584513852:android:a0096768ae655eff823239",
         "android_client_info": {
           "package_name": "com.example.dinosaursapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "306191708256-oi5alr77ulm487dbq6aosm6en8v3hv3g.apps.googleusercontent.com",
+          "client_id": "218584513852-u8dadas3iuovu015r40pfsl6vhbab2km.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCoh7zYL_xg2gzo9tJVgQdG3Q6v-l-QaCs"
+          "current_key": "AIzaSyDOieMWn7wAqWY7A67yD7NFRot2yC8a6jM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "306191708256-oi5alr77ulm487dbq6aosm6en8v3hv3g.apps.googleusercontent.com",
+              "client_id": "218584513852-u8dadas3iuovu015r40pfsl6vhbab2km.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
